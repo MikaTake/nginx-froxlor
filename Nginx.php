@@ -724,8 +724,12 @@ class Nginx extends HttpConfigBase
 				if (Settings::Get('system.sessionticketsenabled') == '1') {
 					$sslsettings .= "\t" . 'ssl_session_tickets ' .  (isset($domain_or_ip['ssl_sessiontickets']) && $domain_or_ip['ssl_sessiontickets'] == '1' ? 'on' : 'off') . ';' . "\n";
 				}
-				// # ssl season cache about 40000 sessions
+<<<<<<< HEAD
+				// ssl season cache about 40000 sessions recomment by Mozilla SSL Generator
 				$sslsettings .= "\t" . 'ssl_session_cache shared:MozSSL:10m;' . "\n";
+=======
+				$sslsettings .= "\t" . 'ssl_session_cache shared:SSL:10m;' . "\n";
+>>>>>>> 05d5230c853ab0730f4ace13056b03e851e5e7b1
 				$sslsettings .= "\t" . 'ssl_certificate ' . \Froxlor\FileDir::makeCorrectFile($domain_or_ip['ssl_cert_file']) . ';' . "\n";
 
 				if ($domain_or_ip['ssl_key_file'] != '') {
@@ -1276,4 +1280,7 @@ class Nginx extends HttpConfigBase
 		}
 	}
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 05d5230c853ab0730f4ace13056b03e851e5e7b1
